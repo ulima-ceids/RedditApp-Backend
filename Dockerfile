@@ -1,8 +1,8 @@
-FROM node:22-alpine
+FROM node:18-alpine
 
 ENV NODE_ENV=development
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
 
@@ -11,9 +11,20 @@ RUN npm install
 # RUN npm ci --only=production
 
 # Bundle app source
+
+# Check installed packages (for debugging)
+RUN npm list --depth=0
+
+#RUN npm install -g typescript
+
 COPY . .
+
+
+#RUN npx tsc
+RUN ./node_modules/.bin/tsc
+
 
 EXPOSE 3000
 
-RUN ["npm", "run", "build"]
+
 CMD ["npm", "start"]
