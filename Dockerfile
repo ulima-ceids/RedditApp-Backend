@@ -1,6 +1,10 @@
 FROM node:18-alpine
 
 ENV NODE_ENV=development
+ENV DB_HOST=postgres
+ENV DB_USERNAME=root
+ENV DB_PASSWORD=root
+ENV DB_NAME=root
 
 WORKDIR /app
 
