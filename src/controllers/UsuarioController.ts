@@ -14,6 +14,17 @@ const UsuarioController = () => {
         }
     })
 
+    router.post("/", async (req: Request, resp: Response) => {
+
+    })
+
+    
+    router.delete("/", async (req: Request, resp: Response) => {
+
+    })
+
+
+
     return router;
 }
 
