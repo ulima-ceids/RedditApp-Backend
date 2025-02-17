@@ -1,7 +1,7 @@
-import { Usuario } from "../../domain/entities/Usuario";
+import UsuarioType from "../../domain/entities/UsuarioType";
 
 export interface LoginResponse {
     msg : string;
     token? : string;
-    usuario? : Usuario
+    usuario? : UsuarioType
 }

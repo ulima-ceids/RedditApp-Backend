@@ -1,15 +1,11 @@
-import { AppDataSource } from "../config/database";
-import { Usuario } from "../domain/entities/Usuario";
 
-export const UsuarioRepository = AppDataSource.getRepository(Usuario).extend({
-    async findByUsername(username : string, password : string) {
-        const usuario = this.findOne({
-            where : { 
-                username : username,
-                password : password
-            }
-        })
+const db = require("/app/src/DAO/models");
 
-        return usuario
+export const UsuarioRepository = () => {
+    return {
+        findByUsernamePassword : async (username: string, password: string) => {
+            const usuario = await db.Usuario.findOne({ where: { username, password } });
+            return usuario;
+        }
     }
-})
+}

@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:23-alpine
 
 ENV NODE_ENV=development
 ENV DB_HOST=postgres
