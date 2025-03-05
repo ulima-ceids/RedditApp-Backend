@@ -13,7 +13,11 @@ export const UsuarioRepository = () => {
             foto : string,
             telefono : string,
             carreraId : number) => {
-            const usuario = await db.Usuario.create({ username, password, fechaNacimiento, genero, codigoUlima, foto, telefono, carreraId });
+            const usuario = await db.Usuario.create(
+                { username, password, fechaNacimiento, genero, codigoUlima, foto, telefono, carreraId 
+
+                }
+            );
             return usuario
         }
     }

@@ -6,6 +6,8 @@ export const RegistrarUsuario = async (username: string, password: string, fecha
             foto : string,
             telefono : string,
             carreraId : number) => {
-    const usuario = await UsuarioRepository().addUser(username, password, fechaNacimiento, genero, codigoUlima, foto, telefono, carreraId)
+    const usuario = await UsuarioRepository().addUser(
+        username, password, fechaNacimiento, genero, codigoUlima, foto, telefono, carreraId
+    )
     return usuario
 }

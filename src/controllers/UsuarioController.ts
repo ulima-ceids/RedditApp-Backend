@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import { LoginUsuario } from "../domain/use_cases/LoginUsuario";
+import { RegistrarUsuario } from "../domain/use_cases/RegistrarUsuario";
 
 const UsuarioController = () => {
     const router = express.Router();
@@ -15,7 +16,17 @@ const UsuarioController = () => {
     })
 
     router.post("/", async (req: Request, resp: Response) => {
-
+        const usuario = await RegistrarUsuario(
+            req.body.username, 
+            req.body.password, 
+            req.body.fechaNacimiento, 
+            req.body.genero, 
+            req.body.codigoUlima, 
+            req.body.foto, 
+            req.body.telefono, 
+            req.body.carreraId
+        )
+        resp.status(200).json({msg: "", usuario : usuario})
     })
 
     
