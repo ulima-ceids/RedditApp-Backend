@@ -1,11 +1,12 @@
 {
-  "name": "redditapp-frontend",
+  "name": "redditapp-backend",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "start:dev": "nodemon src/index.ts"
+    "start:dev": "nodemon src/index.ts",
+    "reset": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate && npx sequelize db:seed:all"
   },
   "keywords": [],
   "author": "",

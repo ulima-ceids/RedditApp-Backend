@@ -23,12 +23,13 @@ RUN npm list --depth=0
 
 COPY . .
 
-
 #RUN npx tsc
 RUN ./node_modules/.bin/tsc
 
+# Ejecuta migraciones y seeders automáticamente
+#RUN npx sequelize db:migrate
+#RUN npx sequelize db:seed:all
 
 EXPOSE 3000
-
 
 CMD ["npm", "start"]

@@ -1,0 +1,14 @@
+GET http://localhost:3002/usuarios?codigoUlima=20200711&password=123
+###
+POST http://localhost:3002/usuarios
+Content-Type: application/json
+
+{
+    "codigoUlima" : "20210711",
+    "nombre": "Nombre",
+    "apellidos": "Apellido Apellido",
+    "genero" : "O",
+    "password": "123",
+    "fechaNacimiento" : "2025-03-06T12:00:00.000Z",
+    "telefono" : "987654321"
+}

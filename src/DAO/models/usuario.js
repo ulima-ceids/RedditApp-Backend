@@ -1,7 +1,6 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Usuario extends Model {
     /**
@@ -10,24 +9,25 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Usuario.belongsTo(models.Carrera, {
+      Usuario.belongsTo(models.Carreras, {
         foreignKey: 'carreraId'
       });
     }
   }
   Usuario.init({
-    username: DataTypes.STRING,
+    codigoUlima: DataTypes.STRING,
+    nombre: DataTypes.STRING,
+    apellidos: DataTypes.STRING,
+    genero: DataTypes.ENUM('M', 'F', 'O', 'p'), //Masculino, Femenino, Otro, Prefiero no decirlo
     password: DataTypes.STRING,
     fechaNacimiento: DataTypes.DATE,
-    genero: DataTypes.CHAR(1),
-    codigoUlima: DataTypes.STRING,
     foto: DataTypes.STRING,
     telefono: DataTypes.STRING,
     carreraId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Usuario',
-    freezeTableName : true,
+    modelName: 'Usuarios',
+    //freezeTableName : true,
     timestamps : false
   });
   return Usuario;

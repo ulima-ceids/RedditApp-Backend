@@ -1,24 +1,21 @@
-
 const db = require("/app/src/DAO/models");
 
-export const UsuarioRepository = () => {
+const UsuarioRepository = () => {
     return {
-        findByUsernamePassword : async (username: string, password: string) => {
-            const usuario = await db.Usuario.findOne({ where: { username, password } });
+
+        findByCodePassword : async (codigoUlima: string, password: string) => {
+            const usuario = await db.Usuarios.findOne({ where: { codigoUlima, password } });
             return usuario;
         },
-        addUser : async (username: string, password: string, fechaNacimiento : Date,
-            genero : string,
-            codigoUlima : string,
-            foto : string,
-            telefono : string,
-            carreraId : number) => {
-            const usuario = await db.Usuario.create(
-                { username, password, fechaNacimiento, genero, codigoUlima, foto, telefono, carreraId 
 
-                }
-            );
-            return usuario
+        addUser : async (usuarioData: {
+            codigoUlima: string, nombre: string, apellidos: string, genero: Enumerator, password: string, fechaNacimiento : Date,
+            foto? : string, telefono? : string, carreraId? : number
+        }) => {
+            return await db.Usuarios.create(usuarioData);
         }
+
     }
 }
+
+export default UsuarioRepository;

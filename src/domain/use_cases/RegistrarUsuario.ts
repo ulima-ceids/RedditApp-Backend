@@ -1,13 +1,8 @@
-import { UsuarioRepository } from "../../repositories/UsuarioRepository"
+import UsuarioRepository from "../../repositories/UsuarioRepository"
 
-export const RegistrarUsuario = async (username: string, password: string, fechaNacimiento : Date,
-            genero : string,
-            codigoUlima : string,
-            foto : string,
-            telefono : string,
-            carreraId : number) => {
-    const usuario = await UsuarioRepository().addUser(
-        username, password, fechaNacimiento, genero, codigoUlima, foto, telefono, carreraId
-    )
-    return usuario
+export const RegistrarUsuario = async (usuarioData: {
+    codigoUlima: string, nombre: string, apellidos: string, genero: Enumerator, password: string, fechaNacimiento : Date,
+            foto? : string, telefono? : string, carreraId? : number
+}) => {
+    return await UsuarioRepository().addUser(usuarioData);
 }

@@ -1,10 +1,11 @@
 export default interface Usuario {
     id: number;
-    username: string;
+    codigoUlima : string;
+    nombre: string;
+    apellidos: string;
+    genero : Enumerator;
     password: string;
     fechaNacimiento : Date;
-    genero : string;
-    codigoUlima : string;
     foto : string;
     telefono : string;
     carreraId : number;
