@@ -14,8 +14,13 @@ const UsuarioController = () => {
 
         PostUsuario: async (req: Request, resp: Response) => {
             const usuario = await RegistrarUsuario(req.body);
-            resp.status(200).json({msg: "", usuario : usuario});
+            if (usuario) resp.status(200).json({msg: "", usuario : usuario});
+            else resp.status(404).json({msg: "Revisa tu código"});
         },
+
+        Test: async (req: Request, resp: Response) => {
+            resp.status(200).json({msg: "Hola"})
+        }
 
     }
 };

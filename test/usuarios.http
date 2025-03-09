@@ -12,3 +12,5 @@ Content-Type: application/json
     "fechaNacimiento" : "2025-03-06T12:00:00.000Z",
     "telefono" : "987654321"
 }
+###
+POST http://localhost:3002/usuarios/test
